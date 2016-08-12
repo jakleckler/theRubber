@@ -4,17 +4,32 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="app/css/semantic.css" rel="stylesheet"> -->
+    <link href="app/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/css/rubber.css" rel="stylesheet">
 
 	
 </head>
 
 <body>
-	<div ui-view=""></div>
+	<div class='ui content'>
+		<navigation></navigation>
+		<div ui-view=""></div>
+	</div>
 </body>
 <script src="app/general/angular.min.js"></script>
 <script src="app/general/ui.router.js"></script>
 <script src="app/app.module.js"></script>
 <script src="app/app.config.js"></script>
+<script src="app/common/AuthenticationService.js"></script>
+<script src="app/contact/contact.directive.js"></script>
+<script src="app/contact/email.service.js"></script>
+<script src="app/league/createLeague.directive.js"></script>
+<script src="app/league/leagueService.service.js"></script>
+<script src="app/login/loginUser.directive.js"></script>
+<script src="app/login/registerUser.directive.js"></script>
+<script src="app/navigation/navigation.directive.js"></script>
+<script src="app/profile/playerStats.directive.js"></script>
 
 
 </html>
