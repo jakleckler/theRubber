@@ -1,5 +1,63 @@
 <div class="container">
 	<div class="col-sm-10 col-sm-offset-1">
-		Create League
+		<h3 class="header">Create League</h3>
 	</div>
+	<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-5">
+			<input type="text" class="form-control" ng-model="cl.league.name" placeholder="League Name" required>
+		</div>
+		<div class="col-sm-5" ng-show="!cl.gameWindow">
+			<select name="games" ng-model="cl.league.game" class="form-control" ng-change="loadAttributes()" required="true">
+				<option value="">Select Game</option>
+				<option ng-repeat="game in cl.games" value="{{game.game_id}}">{{game.name}}
+					<div ng-repeat="attribute in game.attributes">
+						<label class="form-control">{{attribute.name}}</label>
+					</div>
+				</option>
+				<option value="new" ng-click="cl.showGameWindow()">Add new</option>
+
+			</select>			
+		</div>
+		
+		<div class="col-sm-10" ng-show="cl.gameWindow">
+
+			<input type="text" class="form-control" ng-model="cl.game.name" placeholder="Enter Game Name">
+			<br />
+
+			<div ng-repeat="attribute in cl.game.attributes" value="{{attribute.id}}">
+				<label class="form-control">{{attribute.name}}</label>
+			</div>
+			<br />
+			<select name="attributes" class="form-control" ng-change="cl.loadAttributes()">
+				<option value="">Select Attributes</option>
+				<option ng-repeat="attribute in cl.attributes" value="{{attribute.id}}">{{attribute.name}}
+					<button class="btn" ng-click="cl.selectAttribute(attribute)">Add</button>
+				</option>
+				<option value="new">
+					<input type="text" class="form-control" ng-model="cl.attribute.name" placeholder="Attribute">
+					<button class="btn" ng-click="cl.addAttribute()">Add</button>
+				</option>
+
+			</select>
+
+		</div>
+		<div class="col-sm-4 col-sm-offset-4">
+			<button class="btn" ng-click="cl.createGame()">Create Game</button>
+		</div>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" ng-model="cl.league.commissionerID" placeholder="Commissioner ID" required>
+		</div>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" ng-model="cl.league.type" placeholder="League Type" required>
+		</div>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" ng-model="cl.league.season" placeholder="Season (1, 2017, ...)" required>
+		</div>
+	</div>
+	<div class="col-sm-4 col-sm-offset-4">
+		<button class="btn" ng-click="cr.createLeague()" >Create</button>
+	</div>
+
+
+	
 </div>

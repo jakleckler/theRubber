@@ -40,7 +40,7 @@
 				$state.go('thankyou');
 				var headers = "FROM:"+ cc.contact.email+"\r\n";
 				var email = {
-					to: "inreadisu@gmail.com",
+					to: "put.it.to.the.rubber@gmail.com",
 					subject: cc.contact.subject,
 					message: cc.contact.message,
 					headers: headers,

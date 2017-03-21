@@ -1,8 +1,3 @@
-# theRuber
-OKAY
-things you will need
-
--A good tool that I like to use for development is Sublime Text 3.  It's dope, try it out.
 
 -READ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 ---this is the style guide that I am basing my code off of.

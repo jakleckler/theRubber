@@ -17,9 +17,9 @@
 
 	};
 
-	RegisterUserController.$Inject = ['$http', '$state'];
+	RegisterUserController.$Inject = ['$http', '$state', 'registerUserService'];
 
-	function RegisterUserController($http, $state) {
+	function RegisterUserController($http, $state, registerUserService) {
 		var ru = this;
 		ru.registerUser = registerUser;
 
@@ -45,12 +45,13 @@
 
 				};
 
-				$http.post("app/endpoints/register.php", data).success(function(response) {
+				return registerUserService.registerUser(data).success(function(response) {
 					console.log(response);
 					localStorage.setItem("token", JSON.stringify(response));
 					$state.go("home");
 				}).error(function(error) {
-					console.log(error);
+					console.error(error);
+
 				});
 			// } else {
 			// 	console.log("Invalid Data");
